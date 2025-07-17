@@ -1,0 +1,75 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICO Expert System Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expert System in Action</h1>
+        <h2>The FICO Credit Score Simulator</h2>
+
+        <div class="card">
+            <h3>Step 1: Enter Applicant Data</h3>
+            <p>Input the financial data for any applicant. The expert system will use these "facts" to calculate a credit score based on its internal knowledge base and rules.</p>
+
+            <div class="input-group">
+                <label for="numLatePayments">Number of Late Payments (over entire history):</label>
+                <input type="number" id="numLatePayments" value="0" min="0">
+            </div>
+
+            <div class="input-group checkbox-group">
+                <input type="checkbox" id="hasRecentLatePayments">
+                <label for="hasRecentLatePayments">Any late payments in the last 6 months?</label>
+            </div>
+
+            <div class="input-group">
+                <label for="totalCreditLimit">Total Credit Limit (e.g., 500000):</label>
+                <input type="number" id="totalCreditLimit" value="100000" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="totalBalance">Total Balance on All Credit:</label>
+                <input type="number" id="totalBalance" value="10000" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="lengthOfCreditHistory">Length of Credit History (in years):</label>
+                <input type="number" id="lengthOfCreditHistory" value="3" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="numNewInquiries">Number of New Inquiries (last 2 years):</label>
+                <input type="number" id="numNewInquiries" value="0" min="0">
+            </div>
+
+            <div class="input-group checkbox-group">
+                <input type="checkbox" id="hasMixedCredit">
+                <label for="hasMixedCredit">Applicant has a mix of credit types? (e.g., cards AND loans)</label>
+            </div>
+
+            <button onclick="calculateFicoScore()">Calculate Score</button>
+        </div>
+
+        <div class="card results-card" id="resultsSection" style="display:none;">
+            <h3>Step 2: Analysis & Results</h3>
+            <div class="score-display">
+                <span id="ficoScoreDisplay"></span>
+                <span id="scoreSummary"></span>
+            </div>
+            <div class="score-breakdown">
+                <h4>How the Score Was Calculated:</h4>
+                <p>Payment History: <span id="paymentHistoryPts"></span></p>
+                <p>Amounts Owed: <span id="amountsOwedPts"></span></p>
+                <p>Length of History: <span id="lengthOfHistoryPts"></span></p>
+                <p>New Credit: <span id="newCreditPts"></span></p>
+                <p>Credit Mix: <span id="creditMixPts"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
